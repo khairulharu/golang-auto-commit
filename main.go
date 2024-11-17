@@ -63,5 +63,5 @@ func main() {
 
 	fmt.Println(string(outputPush))
 
-	fmt.Println("Auto Commit To")
+	fmt.Println("Auto Commit Succesfuly Run On Your Project")
 }
