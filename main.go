@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println(string(outputAdd))
 
-	cmdCommit := exec.Command("git", "commit", "-m", "\" auto commit bro made by khairulharu sigma \"")
+	cmdCommit := exec.Command("git", "commit", "-m", "auto commit bro made by khairulharu sigma")
 
 	cmdCommit.Dir = currentDirectory
 
