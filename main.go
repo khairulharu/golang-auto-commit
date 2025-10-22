@@ -10,8 +10,8 @@ import (
 
 func main() {
 	// Set range tanggal
-	startDate := time.Date(2025, 6, 19, 10, 0, 0, 0, time.Local)
-	endDate := time.Date(2025, 10, 22, 18, 0, 0, 0, time.Local)
+	startDate := time.Date(2025, 10, 22, 10, 0, 0, 0, time.Local)
+	endDate := time.Date(2025, 10, 24, 18, 0, 0, 0, time.Local)
 
 	// Random commits per hari (misal 1-5 commits per hari)
 	minCommitsPerDay := 1
