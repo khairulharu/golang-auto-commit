@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"math/rand"
 	"os"
@@ -9,9 +10,26 @@ import (
 )
 
 func main() {
-	// Set range tanggal
-	startDate := time.Date(2025, 11, 25, 10, 0, 0, 0, time.Local)
-	endDate := time.Date(2026, 2, 22, 18, 0, 0, 0, time.Local)
+	// Inisialisasi parameter flag
+	startDateStr := flag.String("startdate", "2025-11-25", "Start date in format YYYY-MM-DD (e.g., 2025-06-02)")
+	endDateStr := flag.String("enddate", "2026-02-22", "End date in format YYYY-MM-DD")
+	flag.Parse()
+
+	// Parse string ke time.Time
+	startParsed, err := time.ParseInLocation("2006-01-02", *startDateStr, time.Local)
+	if err != nil {
+		fmt.Printf("Format startdate salah: %v. Gunakan format YYYY-MM-DD.\n", err)
+		return
+	}
+	endParsed, err := time.ParseInLocation("2006-01-02", *endDateStr, time.Local)
+	if err != nil {
+		fmt.Printf("Format enddate salah: %v. Gunakan format YYYY-MM-DD.\n", err)
+		return
+	}
+
+	// Set range tanggal berdasarkan input
+	startDate := time.Date(startParsed.Year(), startParsed.Month(), startParsed.Day(), 10, 0, 0, 0, time.Local)
+	endDate := time.Date(endParsed.Year(), endParsed.Month(), endParsed.Day(), 18, 0, 0, 0, time.Local)
 
 	// Random commits per hari (misal 1-5 commits per hari)
 	minCommitsPerDay := 1
